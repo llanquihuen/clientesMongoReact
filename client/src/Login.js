@@ -26,10 +26,10 @@ const Login = () => {
         
     })
     const [unerror, setUnerror] = useState(false)
-    const [successLog, setSuccessLog] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        document.title = "Login - Sakuranbo.shodo"
+        document.title = "Login - Lorem Ipsum "
      
     }, [])
 
@@ -40,15 +40,18 @@ const Login = () => {
   
 
     const iniciarSesion= async(dat)=>{
+        setLoading(true)
         await axios.post(baseUrl,{username:dat.username, password: dat.password})
         .then(res=>{
-            setSuccessLog(true)
-            console.log(res.data)
+            setLoading(false)
+            // console.log(res.data)
             window.location.href="/"
             if(res.data.token){
             localStorage.setItem("token", "Bearer "+ res.data.token )
             }
+            
         }).catch(error=>{
+            setLoading(false)
             setUnerror(true)
             console.log(error);
         })
@@ -83,7 +86,8 @@ const Login = () => {
                 <TextField style={{marginBottom:20}} name="username" variant="outlined" label="Nombre" fullWidth  onClick={(e)=> setDatos ({...datos, username:e.target.value}) }    onChange={(e)=> setDatos ({...datos, username:e.target.value})}/>
                 <TextField id="inputPass" style={{marginBottom:20}} name="password" variant="outlined" type='password' label="Password" fullWidth  onChange={(e)=> setDatos ({...datos, password:e.target.value })}/>
                       </ThemeProvider>
-                            <div>{successLog? "Espere un momento...": " "}</div>
+                            <div>{!loading? "Usuario: admin - Contraseña: 12345": ""}</div>
+                            <div>{loading? "Espere un momento...": " "}</div>
                             <div>{unerror? "Contraseña o usuario incorrecto": " "}</div>
                 <Button id="botonLogin" style={{background:'crimson', color:'snow'}} variant="contained" color="primary" size="large"  onClick={()=>iniciarSesion(datos)} fullWidth>Aceptar</Button>
 

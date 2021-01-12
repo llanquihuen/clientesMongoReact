@@ -77,7 +77,7 @@ const App = () => {
 
 
     useEffect(() => {
-        document.title="Clientes - Sakuranbo.shodo_store"
+        document.title="Clientes - Lorem_store"
     }, [])
 
     useEffect(() => {
