@@ -61,10 +61,13 @@ const App = () => {
                 photo:data.url
             }
             axios.patch(`${url}/${id}`,photoJson, getToken);
-            if (data.url !== undefined){
+          if (data.url !== undefined){
                 localStorage.setItem("photo", data.url)
-                setImage(localImage)
-                window.location.reload()
+                if (data.url !== undefined){
+                    setImage(data.url)
+                }else{
+                    setImage(localImage)
+                }
             }
             axios.get(`${url}/`,getToken).then(resp => {
                 // console.log(resp.data);
