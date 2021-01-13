@@ -9,8 +9,8 @@ import imagenCamila from './images/imagen.png'
 
 
 
-// const baseUrl="http://localhost:5000/auth/login";
-const baseUrl="https://organizarclientes-github.herokuapp.com/auth/login";
+const baseUrl="http://localhost:5000/auth/login";
+// const baseUrl="https://organizarclientes-github.herokuapp.com/auth/login";
 
 
 const Login = () => {
@@ -44,10 +44,13 @@ const Login = () => {
         await axios.post(baseUrl,{username:dat.username, password: dat.password})
         .then(res=>{
             setLoading(false)
-            // console.log(res.data)
+            console.log(res.data)
             window.location.href="/"
             if(res.data.token){
             localStorage.setItem("token", "Bearer "+ res.data.token )
+            localStorage.setItem("photo", res.data.photo )
+            localStorage.setItem("id",res.data.id)
+     
             }
             
         }).catch(error=>{

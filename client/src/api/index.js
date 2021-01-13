@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const url ='https://organizarclientes-github.herokuapp.com/posts';
-// const url ='http://localhost:5000/posts'
+// const url ='https://organizarclientes-github.herokuapp.com/posts';
+const url ='http://localhost:5000/posts'
 const getToken = {headers:{authorization: localStorage.getItem("token")}  //esto es para el middle (AuthToken)
 }
 

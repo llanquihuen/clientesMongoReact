@@ -30,7 +30,9 @@ const login = (req,res)=>{
                     );
                     res.status(200).json({
                         message:"Acceso autorizado",
-                        token:token
+                        token:token,
+                        id:user.id,
+                        photo:user.photo,
                     })
                     // const payload={
                     //     username:user.username,

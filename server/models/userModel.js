@@ -28,7 +28,12 @@ const userSchema = mongoose.Schema({
     login_date:{
         type:Date,
         default:Date.now(),
-    }
+    },
+    photo:String,
+    contain:{
+        type:Boolean,
+        default:true,
+    },
 });
 
 userSchema.pre('save',function(next){

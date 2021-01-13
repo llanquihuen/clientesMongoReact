@@ -64,7 +64,7 @@ const Posts = ({setCurrentId,setPostData}) => {
                 <div style={{margin:'auto',fontFamily:'sans-serif',color:'black', paddingTop:10}} >    
                 Buscar por Nombre
                 </div>
-                <input style={{height:20,margin:'auto', marginTop:10,borderColor:'lightsalmon', borderRadius:7,outline:'none'}} id="searchBar" className="buscador" type="text" placeholder="" onChange={(e)=> setBusca(e.target.value)}></input>
+                <input style={{height:20,margin:'auto', marginTop:10,borderColor:'lightsalmon', borderRadius:7,outline:'none'}} id="searchBar2" className="buscador" type="text" placeholder="" onChange={(e)=> setBusca(e.target.value)}></input>
                 {currentPost.map((post)=>(
                     <Grid key={post._id} item xs={12}>
                         <Post post={post} setPostData={setPostData}/>

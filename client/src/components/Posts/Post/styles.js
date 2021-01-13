@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import icono from '../../../images/sakura.png'
 
 export default makeStyles((theme)=>({
+  root:{
+    borderRadius:15,
+  },
    paper: {
     margin:100,
     position: 'absolute',

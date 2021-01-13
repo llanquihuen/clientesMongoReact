@@ -1,5 +1,7 @@
 import React from 'react'
 import {Card,Button, Typography,Popover} from '@material-ui/core'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
 // import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import FiberNew from '@material-ui/icons/FiberNew';
 import ElPost from './Post'
@@ -50,7 +52,7 @@ const Post = ({post,setPostData}) => {
         setPostData({...nuevo})
         
     }
-    console.log(post)
+    // console.log(post)
 
     
     // const [open, setOpen] = React.useState(false);
@@ -80,6 +82,18 @@ const Post = ({post,setPostData}) => {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+    //Aparece como .MuiPopover-paper en el inspector
+    const theme = createMuiTheme({
+    overrides: {
+        // Name of the component
+        MuiPopover: {
+        // The default props to change
+        paper:{
+            borderRadius:"15px"
+        }, 
+        },
+    },
+    });
         return (
             <Card className={classes.card} style={{minHeight:60,maxHeight:100,boxShadow:'1px 1px 4px #00000055',background:'linear-gradient(rgba(255,255,255,1), rgba(255,248,240 ,1)',border:`3px solid ${post.despacho === 'santiago'? 'lightskyblue' : post.despacho === 'region'? 'hotpink': post.despacho === 'metro' ?'limegreen' : '#9E9E9E'}`}}>
      
@@ -97,6 +111,7 @@ const Post = ({post,setPostData}) => {
                 </Button>
              
             </div>
+             <ThemeProvider theme={theme}>
             <Popover 
                 id={id}
                 open={open}
@@ -111,8 +126,9 @@ const Post = ({post,setPostData}) => {
                 horizontal: 'center',
                 }}
             >
-                <ElPost post={post}/>
+                <ElPost  post={post}/>
             </Popover>
+            </ThemeProvider>
             {/* <div style={{position:'absolute',right:0,bottom:0, background:'red'}} >
 
             <Modal
