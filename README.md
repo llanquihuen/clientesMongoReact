@@ -2,7 +2,7 @@
  
  Ejemplo
  --> https://github-clientes-publicdb.netlify.app/
- (Esperar unos 5 segundos al iniciar sesión, los servidores de heroku gratuitos se quedan dormidos por inactividad)
+ - (Esperar unos 5 segundos al iniciar sesión, porque los servidores de heroku gratuitos se quedan dormidos por inactividad)
  
  App hecha a medida para Sakuranbo.Shodo para organizar sus clientes. 
  Se puede imprimir tarjetas para envio, editar cada aspecto de las compras de los clientes.
